@@ -130,7 +130,6 @@ class Product {
 }
 
 class A {
-	static $x2 = 100;
 	public function foo() {
 		static $x = 0;
 		echo ++$x;
@@ -144,6 +143,8 @@ class A {
  * Поэтому все объекта этого класса будут обращаться к одной и той же переменной
  */
 
+echo '<p>';
+
 $a1 = new A();
 $a2 = new A();
 $a1->foo();
@@ -151,16 +152,15 @@ $a2->foo();
 $a1->foo();
 $a2->foo();
 
+echo '</p>';
+
 /*
  * undeclared static property действуют только в пределах одного класса
  * если класс изменяется - то соответсвенно undeclared static property
  * будут лежать в другом участке памяти, пренадлежащему другому классу
  */
-
+echo '<p>';
 class B extends A {
-	public function foo2() {
-		echo ++parent::$x2;
-	}
 	
 }
 $a1 = new A;
@@ -169,5 +169,5 @@ $a1->foo();
 $b1->foo();
 $a1->foo();
 $b1->foo(); 
-$b1->foo2(); 
-$b1->foo2(); 
+
+echo '<p>';
