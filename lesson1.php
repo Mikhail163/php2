@@ -5,17 +5,21 @@
  *
  */
 
+$book = new Book('Крутая книга', 1000, 'Пушкин', 521);
+
+$book->view();
+
 class Book extends Product {
 	public $mAuthor = '';
 	
 	public function __construct($name, $price, $author, $page_number) {
-		parent::__construct($name, $age);
+		parent::__construct($name, $price);
 		
 		$this->mAuthor = $author;
 		
-		parent::$mState['page_number'] = 0;
+		$this->mState['page_number'] = 0;
 		
-		parent::state('page_number', $page_number);
+		$this->state('page_number', $page_number);
 	}
 }
 
@@ -103,7 +107,7 @@ class Product {
 		
 	}
 	
-	private function state($state_name = '', $val = -1) {
+	protected function state($state_name = '', $val = -1) {
 		
 		if (!empty($state_name)) {
 			
@@ -125,7 +129,7 @@ class Product {
 }
 
 class A {
-	//static $x = 100;
+	static $x2 = 100;
 	public function foo() {
 		static $x = 0;
 		echo ++$x;
@@ -154,7 +158,7 @@ $a2->foo();
 
 class B extends A {
 	public function foo2() {
-		echo ++parent::$x;
+		echo ++parent::$x2;
 	}
 	
 }
