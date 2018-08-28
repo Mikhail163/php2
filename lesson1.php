@@ -130,6 +130,7 @@ class Product {
 }
 
 class A {
+	static $x = 100;
 	public function foo() {
 		static $x = 0;
 		echo ++$x;
@@ -161,7 +162,9 @@ echo '</p>';
  */
 echo '<p>';
 class B extends A {
-	
+	public function foo2() {
+		echo ++parent::$x;
+	}
 }
 $a1 = new A;
 $b1 = new B;
@@ -169,5 +172,10 @@ $a1->foo();
 $b1->foo();
 $a1->foo();
 $b1->foo(); 
+
+echo '</p><p>';
+
+$b1->foo2();
+$b1->foo2(); 
 
 echo '<p>';
