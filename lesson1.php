@@ -163,7 +163,7 @@ echo '</p>';
 echo '<p>';
 class B extends A {
 	public function foo2() {
-		echo ++parent::$x;
+		echo ++self::$x;
 	}
 }
 $a1 = new A;
