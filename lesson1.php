@@ -52,7 +52,8 @@ class Product {
 		$product = "Название: {$this->mName}; описание: {$this->mDescription};";
 		
 		foreach ($this->mState as $key => $value) {
-			$product .= " {$key}: {$value};";
+			if ($value != 0)
+				$product .= " {$key}: {$value};";
 		}
 		
 		return $product;
