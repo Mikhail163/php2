@@ -127,10 +127,10 @@ foreach(new RecursiveIteratorIterator($iter) as $key => $value) {
 */
 // Задание 1
 
-/*
+
 $explorer = new Explorer;
 echo $explorer->render();
-*/
+
 
 /**
  * Класс "Проводник" - просматриваем дирректории при помощи итератора
